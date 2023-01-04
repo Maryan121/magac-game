@@ -1,69 +1,79 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    
-        <title>testing file</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>magc</title>
+  
+</head>
+<body>
+    <style>
+    body{
+      
+    }
+    main{
+        text-align: center;
+        background-color: rgba(0,0,0,.5);
+        padding: 1rem;
+        color: white;
+        gap: .9rem;
+        box-shadow: 0 0 4px 1px black;
+    }
+    button{
+        padding: .6rem 1rem;
+        font-size: 1.2rem;
+        background-color: black;
+        color: white;
+    }
+    button:hover, button:focus{
+        background-color: rgba(0,0,0,.5);
+        color: #fff;
+    }
+    #names{
+        font-size: 1.4rem;
+        border: black solid 1px;
+        padding: .8rem;
+        display: none;
+        font-family: Monospace;
+        text-shadow: 0 0 6px  black;
+    }
+    #date-container{
+        font-family: Monospace;
+        font-weight: bold;
+        text-align: right;
+        padding: .7rem;
+    }
         
-    </head>
-    <body>
-        <style>
-            body{
-                margin: 0;
-                padding: 0;
-                box-sizing: borderbox;
-            }
-            .container{
-                background-color: whitesmoke;
-                text-align: center;
-                padding: 1rem;
-                margin: 2rem auto;
-                width: 100%;
-            }
-            p{
-                font-size: .7rem;
-            }
-            button{
-                padding: .5rem 1rem;
-                outline: none;
-            }
-            button:hover, button:focus{
-                background-color: rgba(0,0,0,.7);
-                color: #fff;
-            }
-            .a{
-                margin: 1rem 0;
-                padding: 1rem 0;
-                background-color: rgba(255,255,255,.7);
-                font-size: 1.4rem;
-                text-transform: capitalize;
-                font-family: Monospace;
-            }
-            @media(min-width: 415px){
-                .container{
-                   width: 60%;
-                }
-            }
-        </style>
+    </style>
+    <p id="date-container"></p>
+    <main>
+        <h1>magac game</h1>
+        <p class="details">Hoos taabo saa magac cusub u hesho.</p>
         <div class="container">
-          <strong>Magac so saare game</strong>
-          <p>buttonka hoose taabo si aad magacyo kala duwan u hesho</p>
-          <div class="a">
-              <b id="printer"><b>
-          </div>
-          <button type="submit" id="btn"onclick="myfunction();">Taabo</button>
+            <p id="names"> </p>
+            <button id="generator"> taabo</button>
         </div>
-        <script async>
-            let btn = document.getElementById('btn');
-            let printer = document.getElementById('printer');
-            var myArray = ['xaliimo','safiyo','maryan','c.kariin','bilaal'];
-            function myfunction(){
+    </main>        
+
+
+
+    <script>
+  const d = new Date();
+        let date_container = document.getElementById('date-container');
+        date_container.innerHTML =`Date: 0${d.getDate()}/0${d.getMonth()+1}/${d.getFullYear()}`;
         
-             printer.innerHTML = myArray[Math.floor(Math.random()) * myArray.length];
+        let generator = document.getElementById('generator');
+        let para = document.getElementById('names');
+        //the names below
+        let myArray = ['xaliimo','safiyo','maryan','c.kariin','bilaal']
+        function myfunction(){
+                para.style.display = 'block';
+                para.innerHTML = ` ${myArray[Math.floor(Math.random() * myArray.length)]}`;
+                
             }
+        generator.addEventListener('click',myfunction);
         
-        </script>
-    </body>
-    
-    
+    </script>
+</body>
 </html>
